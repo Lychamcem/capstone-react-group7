@@ -9,3 +9,5 @@
 - Slices: reducer ...
 
 5. Templates: nơi chứa các components xuyên suốt và <Outlet/>
+
+6. Mở terminal bằng tổ hợp phím tắt: ctrl + `
