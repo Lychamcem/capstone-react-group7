@@ -4,7 +4,13 @@ import cls from "classnames";
 import FormOutlet from "../../components/FormOutlet/FormOutlet";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/slices/userSlice";
 
@@ -30,12 +36,21 @@ function LoginPage() {
     return state.userReducer;
   });
 
+  // 5)
+  const [searchParams, _] = useSearchParams();
+
+  // console.log(searchParams.get(`fallbackUrl`));
+
   // 2)
   const onSubmit = (values) => {
     dispatch(login(values));
   };
 
   if (user) {
+    // searchParams.get(`fallbackUrl`) = /booking/44239
+    if (searchParams.get(`fallbackUrl`)) {
+      return <Navigate to={searchParams.get(`fallbackUrl`)} />;
+    }
     return <Navigate to="/" />;
   }
 
