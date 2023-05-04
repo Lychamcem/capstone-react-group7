@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import store from "../Redux/store";
 const axiosClient = axios.create({
   baseURL: "https://movienew.cybersoft.edu.vn/api",
   headers: {
@@ -7,5 +7,27 @@ const axiosClient = axios.create({
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA0MiIsIkhldEhhblN0cmluZyI6IjMwLzA5LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY5NjAzMjAwMDAwMCIsIm5iZiI6MTY2NzA2MjgwMCwiZXhwIjoxNjk2MTc5NjAwfQ.i6JqYnGkwyHl6dkDHnjFWbPfBEl2l4SXAp4r7h9Ecpw",
   },
 });
+
+// Cấu hình headers trước khi gửi lên server:
+axiosClient.interceptors.request.use((config) => {
+  const isLogin = store.getState().userReducer.user ? true : false;
+  config.headers.Authorization = isLogin
+    ? `Bearer ${store.getState().userReducer.user.accessToken}`
+    : "";
+  return config;
+});
+
+// Tìm lỗi "401" bằng console.log (error)
+axiosClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 401) {
+      window.location.href = `/login?fallbackUrl=${window.location.pathname}`;
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default axiosClient;
