@@ -18,3 +18,7 @@
 - axios interceptors response: cấu hình response từ api trả về
 
 8. Thư viện Persist dùng để lưu dữ liệu vào local storage trong trường hợp reload lại page
+
+9. date-fns: format thời gian.
+
+10. antd: Có sẵn những component để sử dụng.
