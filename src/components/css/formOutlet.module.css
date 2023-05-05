@@ -1,0 +1,17 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgb(0, 0, 0)), url("../../../public/image/backdrop.jpeg");
+  background-size: 105%;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding: 70px 0;
+}
+.backdrop .box {
+  background-color: white;
+  width: 500px;
+  height: 100%;
+  border-radius: 5px;
+  padding: 24px;
+}/*# sourceMappingURL=formOutlet.module.css.map */

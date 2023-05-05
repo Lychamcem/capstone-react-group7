@@ -1,0 +1,58 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgb(0, 0, 0)), url("../../../public/image/backdrop.jpeg");
+  background-size: 105%;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding: 70px 0;
+}
+.backdrop .box {
+  background-color: white;
+  width: 500px;
+  border-radius: 5px;
+  padding: 24px;
+}
+.backdrop .box .icon {
+  background-color: orangered;
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.backdrop .box .formGroup {
+  margin-bottom: 10px;
+}
+.backdrop .box .formGroup input {
+  width: 100%;
+  padding: 10px;
+}
+.backdrop .box .formGroup p {
+  color: orangered;
+}
+.backdrop .box .formGroup button {
+  background-color: orangered;
+  color: white;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 15px;
+  font-weight: bold;
+  transition: all 0.5s;
+}
+.backdrop .box .formGroup button:hover {
+  background-color: rgb(139, 45, 10);
+}
+.backdrop .box .linkToLogin {
+  text-align: right;
+  margin-top: 10px;
+}
+.backdrop .box .linkToLogin a {
+  color: rgb(13, 13, 227);
+  font-weight: bold;
+  font-size: 20px;
+}/*# sourceMappingURL=register.module.css.map */
