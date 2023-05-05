@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { PersistGate } from "redux-persist/integration/react";
 
+import "jquery/dist/jquery.min.js";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
