@@ -1,0 +1,25 @@
+.movieDetails {
+    background-color: #fff;
+
+    &__bottom {
+        width: 100%;
+
+        .movieDetails__List {
+            display: grid;
+            grid-template-columns: 1;
+            text-align: center;
+            gap: 35px;
+
+            .moviewDetails__item {
+                border-radius: 10px;
+                margin-right: 20px;
+
+                img {
+                    width: 100%;
+                    height: 400px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
