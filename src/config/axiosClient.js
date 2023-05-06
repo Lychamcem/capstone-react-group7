@@ -1,5 +1,4 @@
 import axios from "axios";
-import store from "../Redux/store";
 const axiosClient = axios.create({
   baseURL: "https://movienew.cybersoft.edu.vn/api",
   headers: {
@@ -10,9 +9,9 @@ const axiosClient = axios.create({
 
 // Cấu hình headers trước khi gửi lên server:
 axiosClient.interceptors.request.use((config) => {
-  const isLogin = store.getState().userReducer.user ? true : false;
+  const isLogin = localStorage.getItem("accessToken") ? true : false;
   config.headers.Authorization = isLogin
-    ? `Bearer ${store.getState().userReducer.user.accessToken}`
+    ? `Bearer ${localStorage.getItem("accessToken")}`
     : "";
   return config;
 });

@@ -4,6 +4,9 @@ import { loginUser } from "../Services/loginAPI";
 export const login = createAsyncThunk("user/login", async (values) => {
   try {
     const response = await loginUser(values);
+    // lưu accessToken từ api trả về vào localStorage
+    const { accessToken } = response.data.content;
+    localStorage.setItem("accessToken", accessToken);
     return response.data.content;
   } catch (error) {
     return error;
