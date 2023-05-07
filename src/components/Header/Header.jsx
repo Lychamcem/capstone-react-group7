@@ -1,9 +1,30 @@
-import React from 'react'
-import { NavLink, Link } from 'react-router-dom';
+import React, { useRef } from 'react'
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+// import { logout } from '../../Redux/slices/userSlice';
 
 
 function Header() {
+  const { user } = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const showTimesRef = useRef();
+  const theaterClusterRef = useRef();
+  const newsRef = useRef();
+  const applicaionRef = useRef();
+
+  const handleSignin = () => {
+    // Chuyển sang trang /register
+    navigate("/register");
+  };
+
+  const handleLogout = () => {
+    // dispatch(logout());
+    // localStorage.removeItem("user");
+  };
+
+
   return (
     <header className={`${styles.header} fixed-top`}>
       <div className={styles.header__nav} id='nav-test'>
@@ -33,11 +54,9 @@ function Header() {
                   className='nav-link text-left text-md-center'
                   to='#'
                   href='#'
-                // onClick={() => {
-                //   document
-                //     .getElementById('lichChieu')
-                //     .scrollIntoView({ behavior: 'smooth' });
-                // }}
+                  onClick={() => {
+                    showTimesRef.current.scrollIntoView({ behavior: 'smooth' })
+                  }}
                 >
                   Lịch chiếu
                 </Link>
@@ -47,11 +66,11 @@ function Header() {
                   className='nav-link text-left text-md-center'
                   to='#'
                   href='#'
-                // onClick={() => {
-                //   document
-                //     .getElementById('cumRap')
-                //     .scrollIntoView({ behavior: 'smooth' });
-                // }}
+                  onClick={() => {
+                    document
+                      .getElementById('cumRap')
+                      .scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Cụm rạp{' '}
                 </Link>
@@ -107,14 +126,15 @@ function Header() {
             </ul>
           </div>
 
-          <div className=''>
-              <button
-                className='btn logout'
-                // onClick={handleLogOut}
-                style={{ textAlign: 'left' }}
-              >
-                Đăng Xuất
-              </button>{' '}
+          <div className='btn logout' style={{ marginLeft: "auto", display: "flex" }}>
+            {user ? (
+              <>
+                <p>{user.hoTen}</p>
+                <button className='btn btn-gray' onClick={handleLogout}>Đăng Xuất</button>
+              </>
+            ) : (
+              <button onClick={handleSignin}>Đăng Nhập</button>
+            )}
           </div>
         </nav>
       </div>

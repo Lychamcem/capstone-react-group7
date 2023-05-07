@@ -4,12 +4,10 @@ import Slider from "react-slick";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
-import styles from "./Banner.module.scss";
-
+import styles from "./banner.module.scss";
 import { getBannersAPI } from '../../Redux/Services/moviesAPI';
 import ModalTrailer from '../ModalTrailer/ModalTrailer';
+
 
 function Banner() {
     const [banners, setBanners] = useState([]);
@@ -49,13 +47,29 @@ function Banner() {
 
                             <div className={styles.banner__trailer}>
                                 <a href='#' data-lity><i className="fa fa-play" /></a>
-                                <ModalTrailer
-                                    trailer={item.trailer}
-                                    maPhim={item.maPhim}
-                                    isOpen={isOpen}
-                                    onClose={() => setIsOpen(false)}
-                                />
+
+                                {/* <Modal isOpen={true} onRequestClose={() => setIsOpen(false)}>
+                                        {banners?.map((item) => {
+                                            <div key={item.maPhim} className=''>
+                                                <ReactPlayer
+                                                    url="https://www.youtube.com/watch?v=99J9RdkBppM"
+                                                    width="100px"
+                                                    height="100px"
+                                                    playing={true}
+                                                    controls={false}
+                                                />
+                                            </div>
+                                        })}
+
+                                    </Modal> */}
                             </div>
+
+                            <ModalTrailer
+                                trailer={item.trailer}
+                                // maPhim={item.maPhim}
+                                isOpen={isOpen}
+                                onClose={() => setIsOpen(false)}
+                            />
                         </div>
                     )
                 })}

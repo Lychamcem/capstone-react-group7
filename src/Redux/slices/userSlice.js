@@ -6,7 +6,7 @@ export const login = createAsyncThunk("user/login", async (values) => {
     const response = await loginUser(values);
     return response.data.content;
   } catch (error) {
-    return error;
+    throw error.response?.data?.content;
   }
 });
 
@@ -39,5 +39,5 @@ const userSlice = createSlice({
   },
 });
 
-export default userSlice.reducer;
 export const { logout } = userSlice.actions;
+export default userSlice.reducer;

@@ -1,25 +1,24 @@
-import { Modal } from 'bootstrap';
 import React, { useEffect, useState } from 'react'
+import Modal from 'react-modal';
 import ReactPlayer from 'react-player';
 
-function ModalTrailer({ trailer, maPhim, isOpen, onClose }) {
-    if (!isOpen) {
+function ModalTrailer({ trailer, isOpen, onClose }) {
+    if (!trailer) {
         return null;
     }
 
     return (
         <Modal show={isOpen} onClick={onClose}>
             {trailer?.map((item) => {
-                <ReactPlayer
-                    url={item.trailer}
-                    config={{
-                        youtube: {
-                            playerVars: {
-                                autoplay: 1,
-                            },
-                        },
-                    }}
-                />
+                <div key={item.maPhim}>
+                    <ReactPlayer
+                        url={item.trailer}
+                        width="100px"
+                        height="200px"
+                        playing={true}
+                        controls={false}
+                    />
+                </div>
             })}
 
         </Modal>
