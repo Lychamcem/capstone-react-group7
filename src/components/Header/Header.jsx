@@ -2,26 +2,22 @@ import React, { useRef } from 'react'
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-// import { logout } from '../../Redux/slices/userSlice';
+import { logout } from '../../Redux/slices/userSlice';
 
 
 function Header() {
   const { user } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const showTimesRef = useRef();
-  const theaterClusterRef = useRef();
-  const newsRef = useRef();
-  const applicaionRef = useRef();
 
   const handleSignin = () => {
     // Chuyển sang trang /register
-    navigate("/register");
+    navigate("/login");
   };
 
-  const handleLogout = () => {
-    // dispatch(logout());
-    // localStorage.removeItem("user");
+  const handleLogOut = () => {
+    dispatch(logout());
+    localStorage.removeItem("accessToken");
   };
 
 
@@ -54,9 +50,9 @@ function Header() {
                   className='nav-link text-left text-md-center'
                   to='#'
                   href='#'
-                  onClick={() => {
-                    showTimesRef.current.scrollIntoView({ behavior: 'smooth' })
-                  }}
+                  // onClick={() => {
+                  //   showTimesRef.current.scrollIntoView({ behavior: 'smooth' })
+                  // }}
                 >
                   Lịch chiếu
                 </Link>
@@ -66,11 +62,11 @@ function Header() {
                   className='nav-link text-left text-md-center'
                   to='#'
                   href='#'
-                  onClick={() => {
-                    document
-                      .getElementById('cumRap')
-                      .scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  // onClick={() => {
+                  //   document
+                  //     .getElementById('cumRap')
+                  //     .scrollIntoView({ behavior: 'smooth' });
+                  // }}
                 >
                   Cụm rạp{' '}
                 </Link>
@@ -130,7 +126,7 @@ function Header() {
             {user ? (
               <>
                 <p>{user.hoTen}</p>
-                <button className='btn btn-gray' onClick={handleLogout}>Đăng Xuất</button>
+                <button className='btn btn-gray' onClick={handleLogOut}>Đăng Xuất</button>
               </>
             ) : (
               <button onClick={handleSignin}>Đăng Nhập</button>

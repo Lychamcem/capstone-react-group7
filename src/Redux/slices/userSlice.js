@@ -4,9 +4,12 @@ import { loginUser } from "../Services/loginAPI";
 export const login = createAsyncThunk("user/login", async (values) => {
   try {
     const response = await loginUser(values);
+    // lưu accessToken từ api trả về vào localStorage
+    const { accessToken } = response.data.content;
+    localStorage.setItem("accessToken", accessToken);
     return response.data.content;
   } catch (error) {
-    throw error.response?.data?.content;
+    return error;
   }
 });
 
@@ -39,5 +42,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
 export default userSlice.reducer;
+export const { logout } = userSlice.actions;
