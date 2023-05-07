@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
@@ -7,10 +8,10 @@ import styles from "./header.module.scss";
 function Header() {
   const dispatch = useDispatch();
   const handleLogout = () => {
+
     dispatch(logout());
     localStorage.removeItem("accessToken");
   };
-
   return (
     <header className={`${styles.header} fixed-top`}>
       <div className={styles.header__nav} id="nav-test">
@@ -37,6 +38,13 @@ function Header() {
             <ul className="navbar-nav mt-0 ml-auto">
               <li className="nav-item ">
                 <Link
+
+                  className='nav-link text-left text-md-center'
+                  to='#'
+                  href='#'
+                  // onClick={() => {
+                  //   showTimesRef.current.scrollIntoView({ behavior: 'smooth' })
+
                   className="nav-link text-left text-md-center"
                   to="#"
                   href="#"
@@ -44,6 +52,7 @@ function Header() {
                   //   document
                   //     .getElementById('lichChieu')
                   //     .scrollIntoView({ behavior: 'smooth' });
+
                   // }}
                 >
                   Lịch chiếu
@@ -51,9 +60,15 @@ function Header() {
               </li>
               <li className="nav-item  ">
                 <Link
+
+                  className='nav-link text-left text-md-center'
+                  to='#'
+                  href='#'
+
                   className="nav-link text-left text-md-center"
                   to="#"
                   href="#"
+
                   // onClick={() => {
                   //   document
                   //     .getElementById('cumRap')
@@ -114,14 +129,16 @@ function Header() {
             </ul>
           </div>
 
-          <div className="">
-            <button
-              className="btn logout"
-              // onClick={handleLogOut}
-              style={{ textAlign: "left" }}
-            >
-              Đăng Xuất
-            </button>{" "}
+
+          <div className='btn logout' style={{ marginLeft: "auto", display: "flex" }}>
+            {user ? (
+              <>
+                <p>{user.hoTen}</p>
+                <button className='btn btn-gray' onClick={handleLogOut}>Đăng Xuất</button>
+              </>
+            ) : (
+              <button onClick={handleSignin}>Đăng Nhập</button>
+            )}
           </div>
         </nav>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./Application.module.scss";
+import styles from "./application.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -40,51 +40,53 @@ function Application() {
             </span>
           </div>
 
-          <div className={`${styles.application__img} col-lg-6 mt-5 mt-lg-0`}>
-            <LazyLoadImage
-              src="./image/mobile.png"
-              alt="img_mobie"
-              className={styles.img__mobile}
-            />
+          <div className={`${styles.application__right} col-lg-6 mt-5 mt-lg-0`}>
+            <div className={styles.application__img}>
+              <LazyLoadImage
+                src="./image/mobile.png"
+                alt="img_mobie"
+                className={styles.img__mobile}
+              />
 
-            <div className={styles.img__app}>
-              <Slider {...settings}>
-                <LazyLoadImage
-                  src="./image/slide1.jpg"
-                  alt="img_slide1"
-                  className="img-fluid"
-                />
-                <LazyLoadImage
-                  src="./image/slide2.jpg"
-                  alt="img_slide2"
-                  className="img-fluid"
-                />
-                <LazyLoadImage
-                  src="./image/slide3.jpg"
-                  alt="img_slide3"
-                  className="img-fluid"
-                />
-                <LazyLoadImage
-                  src="./image/slide4.jpg"
-                  alt="img_slide4"
-                  className="img-fluid"
-                />
-                <LazyLoadImage
-                  src="./image/slide5.jpg"
-                  alt="img_slide5"
-                  className="img-fluid"
-                />
-                <LazyLoadImage
-                  src="./image/slide6.jpg"
-                  alt="img_slide6"
-                  className="img-fluid"
-                />
-              </Slider>
+              <div className={styles.img__app}>
+                <Slider {...settings}>
+                  <LazyLoadImage
+                    src="./image/slide1.jpg"
+                    alt="img_slide1"
+                    className={`${styles.img} img-fluid`}
+                  />
+                  <LazyLoadImage
+                    src="./image/slide2.jpg"
+                    alt="img_slide2"
+                    className={`${styles.img} img-fluid`}
+                  />
+                  <LazyLoadImage
+                    src="./image/slide3.jpg"
+                    alt="img_slide3"
+                    className={`${styles.img} img-fluid`}
+                  />
+                  <LazyLoadImage
+                    src="./image/slide4.jpg"
+                    alt="img_slide4"
+                    className={`${styles.img} img-fluid`}
+                  />
+                  <LazyLoadImage
+                    src="./image/slide5.jpg"
+                    alt="img_slide5"
+                    className={`${styles.img} img-fluid`}
+                  />
+                  <LazyLoadImage
+                    src="./image/slide6.jpg"
+                    alt="img_slide6"
+                    className={`${styles.img} img-fluid`}
+                  />
+                </Slider>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

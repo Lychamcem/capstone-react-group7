@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import styles from './MovieDetails.module.scss';
+import styles from './movieDetails.module.scss';
 
 import { getMoviesAPI } from '../../Redux/Services/moviesAPI';
 import Slider from 'react-slick';
@@ -40,11 +40,11 @@ function MovieDetails() {
         <div className={styles.movieDetails}>
             <div className="container">
                 <div className={`${styles.movieDetails__top} mt-4`}>
-                    <div class="input-group mb-3">
+                    <div className="input-group mb-3">
                         <input
                             id="txtSearch"
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Nhập từ khóa"
                             aria-label="Recipient's username"
                             aria-describedby="basic-addon2"
@@ -64,7 +64,7 @@ function MovieDetails() {
                                             <span>{item.tenPhim}</span>
                                         </div>
                                         <div className={styles.movieDetails__button}>
-                                            <button className='btn btn-primary mt-2' onClick={() => navigator(`/movies/${item.maPhim}`)}>Mua vé</button>
+                                            <button className='btn btn-primary mt-2' onClick={() => navigator(`/details/${item.maPhim}`)}>Mua vé</button>
                                         </div>
                                     </div>
                                 </div>
