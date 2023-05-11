@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Tabs } from 'antd'
-import { cineName, getShowTimeRequest } from '../../Redux/Services/cineNameAPI';
+import { cineName, getShowTimeRequest, getTheaterNameByCineId } from '../../Redux/Services/cineNameAPI';
 import { useParams } from 'react-router-dom';
 import CineName from './CineName/CineName';
 import { toast } from 'react-toastify';
@@ -11,14 +11,20 @@ import TheaterName from './TheaterName/TheaterName';
 function Showtime() {
   const [cineList, setCineList] = useState([]);
   const [cineId, setCineId] = useState("");
-  const [timeDate, setTimeDate] = useState([]);
-  const params = useParams();
-  const getShowTime = async () => {
+  const [theaterList, setTheaterList] = useState([]);
+
+  const updateCineIdSelected = (cineId) => {
+    setCineId(cineId);
+  };
+
+  const getTheaterByCineId = async (id) => {
     try {
-      const response = await getShowTimeRequest(params.movieId);
-      setTimeDate(response.heThongRapChieu);
+      const response = await getTheaterNameByCineId(id);
+      // cho nay P ghi la response.heThongRapChieu, ma response la 1 array chu khong phai object, nen no k show, P log response la thay no la 1 array
+      setTheaterList(response);
+
     } catch (error) {
-      toast.error("Không lấy được thông tin lịch chiếu phim");
+      toast.error("Không lấy được thông tin cụm rạp chiếu");
     }
   };
 
@@ -35,22 +41,18 @@ function Showtime() {
     }
   };
 
-  const updateCineIdSelected = (cineId) => {
-    setCineId(cineId);
-  };
-
   useEffect(() => {
     getCineName();
   }, []);
 
   useEffect(() => {
-    if (params.movieId) {
-      getShowTime();
+    if (cineId) {
+      getTheaterByCineId(cineId)
     }
-  }, []);
+  }, [cineId]);
 
   return (
-    <div className={styles.container}>
+    <div className="container py-5">
       <Tabs
         tabPosition={"left"}
         items={cineList.map((item, index) => {
@@ -63,9 +65,7 @@ function Showtime() {
               />
             ),
             key: id,
-            children: <TheaterName timeDate={timeDate} />,
-            key: id,
-            children: <TheaterName cineId={cineId} timeDate={timeDate} />,
+            children: <TheaterName cineId={cineId} theaterList={theaterList} />,
           };
         })}
       />

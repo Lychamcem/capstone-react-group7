@@ -1,0 +1,75 @@
+.banner {
+  padding-top: 80px;
+  cursor: pointer;
+}
+.banner:hover .banner__trailer {
+  opacity: 1 !important;
+}
+.banner img {
+  width: 100%;
+  height: 500px;
+}
+.banner .slick-dots li.slick-active button::before {
+  font-size: 11px;
+  color: #ec7532;
+}
+.banner .banner__inner {
+  position: relative;
+}
+.banner .banner__trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  color: white !important;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s;
+  cursor: pointer !important;
+}
+.banner .banner__trailer i {
+  padding: 25px;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer !important;
+  transition: all 0.5s;
+  font-size: 25px;
+  transform: scale(1);
+}
+.banner .banner__trailer i:hover {
+  transform: scale(1.1);
+  border-color: #fbbd61;
+  color: #fbbd61;
+  cursor: pointer !important;
+}
+@media screen and (max-width: 768px) {
+  .banner .banner__trailer i {
+    font-size: 20px;
+    padding: 20px;
+  }
+  .banner .banner__trailer i:hover {
+    transform: scale(1.1);
+  }
+}
+.banner .slides {
+  color: gray;
+}
+.banner .slides .slick-prev {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  left: 30px;
+}
+.banner .slides .slick-prev::before {
+  font-size: 35px;
+}
+.banner .slides .slick-next {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  z-index: 1;
+}
+.banner .slides .slick-next::before {
+  font-size: 35px;
+}/*# sourceMappingURL=banner.module.css.map */

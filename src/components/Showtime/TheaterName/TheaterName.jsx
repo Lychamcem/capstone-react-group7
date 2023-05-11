@@ -1,51 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./theaterName.module.scss";
 import cls from "classnames";
-import { Link } from "react-router-dom";
-import { format } from "date-fns";
+import { Tabs } from 'antd';
+import MovieList from '../MovieList/MovieList';
+import { getShowTimeByCineIdAndGroupIdAPI } from '../../../Redux/Services/cineNameAPI';
+import { toast } from 'react-toastify';
 
-function TheaterName({ cineId, timeDate }) {
-    const cineSelected = timeDate.filter((item) => {
-        return item.maHeThongRap === cineId;
-    });
+function TheaterName({ cineId, theaterList }) {
+    const [movieList, setMovieList] = useState([]);
+    const [complexCineId, setComplexCineId] = useState("");
+
+    const getShowTimeByCineIdAndGroupId = async () => {
+        try {
+            const respone = await getShowTimeByCineIdAndGroupIdAPI(cineId);
+            setMovieList(respone);
+        } catch (error) {
+            toast.error("Không lấy được thông tin lịch chiếu");
+        }
+    }
+
+    useEffect(() => {
+        if (cineId) {
+            getShowTimeByCineIdAndGroupId();
+        }
+    }, []);
 
     return (
-        <div className="py-3">
-            {cineSelected.map((item) => {
-                return item.cumRapChieu.map((cumRap) => {
-                    return (
-                        <div key={cumRap.maCumRap} className="mb-5">
-                            <h3 className={styles.title}>{cumRap.tenCumRap}</h3>
-                            {/* Lich chieu phim */}
-                            <div className={cls("d-flex row w-100", styles.row)}>
-                                {cumRap.lichChieuPhim.map((value) => {
-                                    return (
-                                        <div key={value.maLichChieu} className={cls("col-3")}>
-                                            <Link
-                                                className={styles.showTime}
-                                                to={`/booking/${value.maLichChieu}`}
-                                            >
-                                                <span className="text-success fw-bold">
-                                                    {format(
-                                                        new Date(value.ngayChieuGioChieu || Date.now()),
-                                                        "dd-MM-yyyy"
-                                                    )}
-                                                </span>
-                                                <span className="text-danger fw-bold ">
-                                                    {format(
-                                                        new Date(value.ngayChieuGioChieu),
-                                                        " ~ hh:mm"
-                                                    )}
-                                                </span>
-                                            </Link>
-                                        </div>
-                                    );
-                                })}
+        <div className={cls("py-3", styles.theater__content)}>
+            <Tabs
+                tabPosition={"left"}
+                items={theaterList.map((item, index) => {
+                    const id = String(index + 1);
+                    return {
+                        label: (
+                            <div className={cls("col-1", styles.theater__text)}>
+                                <p>{item.tenCumRap}</p>
+                                <span>{item.diaChi}</span>
+                                <br />
+                                <button onClick={() => {
+                                    setComplexCineId(item.maCumRap)
+                                }}>[ Chi tiết ]</button>
                             </div>
-                        </div>
-                    );
-                });
-            })}
+                        ),
+                        key: id,
+                        children: <MovieList complexCineId={complexCineId} movieList={movieList} />,
+                    };
+                })}
+            />
+
         </div>
     );
 }

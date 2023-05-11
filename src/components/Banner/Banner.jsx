@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Slider from "react-slick";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./banner.module.scss";
-import { getBannersAPI } from '../../Redux/Services/moviesAPI';
 import ModalTrailer from '../ModalTrailer/ModalTrailer';
+import { getBannersAPI } from '../../Redux/Services/bannerAPI';
 
 
 function Banner() {
@@ -30,8 +30,10 @@ function Banner() {
     if (error) return null;
 
     const settings = {
-        dots: true,
+        className: 'section-outstanding__slider',
+        arrows: false,
         infinite: true,
+        dots: true,
         autoplay: true,
         autoplaySpeed: 2000,
         slidesToShow: 1,
