@@ -8,8 +8,3 @@ export const getMoviesAPI = async () => {
     });
     return data;
 }
-
-export const getBannersAPI = async () => {
-    const { data } = await axiosClient.get("/QuanLyPhim/LayDanhSachBanner");
-    return data;
-};

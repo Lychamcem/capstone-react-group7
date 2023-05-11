@@ -1,0 +1,29 @@
+.theater__content {
+    .theater__text {
+        padding: 0;
+        font-size: 11.5px;
+        text-align: left;
+
+
+        p {
+            font-size: 13px;
+            margin: 0;
+            color: #ec7532;
+            font-weight: bold;
+
+            .diaChiRap {
+                color: #212530;
+            }
+        }
+
+        span {
+            color: rgb(102, 101, 101);
+        }
+
+        button {
+            color: rgb(240, 30, 30);
+            font-weight: bold;
+            border: none;
+        }
+    }
+}

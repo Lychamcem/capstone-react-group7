@@ -1,0 +1,27 @@
+.film__content {
+  display: flex;
+  align-items: top;
+  height: 200px;
+  overflow-y: auto;
+}
+.film__content .film__img img {
+  width: 150px;
+  height: 200px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.film__content .row {
+  row-gap: 20px;
+}
+.film__content .row .showTime {
+  color: black;
+  background-color: rgb(237, 222, 222);
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+}
+.film__content .title {
+  font-size: 20px;
+  color: rgb(139, 195, 74);
+}/*# sourceMappingURL=movieList.module.css.map */

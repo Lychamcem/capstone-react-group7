@@ -20,13 +20,28 @@ function MovieDetails() {
         }
     }
 
+    const [search, setSearch] = useState("");
+    const [searchParam] = useState(["tenPhim"]);
+
+    const handleChange = (evt) => {
+        setSearch(evt.target.value);
+    };
+
     useEffect(() => {
         getMovies();
     }, []);
 
     if (error) return null;
 
-
+    function Search(movies) {
+        return movies.filter((item) => {
+            return searchParam.some((newItem) => {
+                return (
+                    item[newItem].toString().toLowerCase().indexOf(search.toLowerCase()) > -1
+                );
+            });
+        });
+    }
 
     const settings = {
         dots: true,
@@ -46,6 +61,8 @@ function MovieDetails() {
                             type="text"
                             className="form-control"
                             placeholder="Nhập từ khóa"
+                            value={search}
+                            onChange={handleChange}
                             aria-label="Recipient's username"
                             aria-describedby="basic-addon2"
                         />
@@ -53,9 +70,9 @@ function MovieDetails() {
                     </div>
                 </div>
                 <Slider {...settings}>
-                    {movies?.map((item) => {
+                    {Search(movies)?.map((item) => {
                         return (
-                            <div key={item.maPhim}  className={styles.movieDetails__bottom}>
+                            <div key={item.maPhim} className={styles.movieDetails__bottom}>
                                 <div className={styles.movieDetails__List}>
                                     <div className={styles.moviewDetails__item}>
                                         <img src={item.hinhAnh} alt={item.maPhim} />
@@ -79,3 +96,6 @@ function MovieDetails() {
 }
 
 export default MovieDetails
+
+
+

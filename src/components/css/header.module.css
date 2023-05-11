@@ -1,0 +1,67 @@
+.header {
+  z-index: 999;
+  height: 30px;
+  width: 100%;
+}
+.header__logo img {
+  height: 50px;
+  width: 50px;
+  transition: all 0.5s;
+}
+.header__nav li {
+  display: inline;
+  margin: 0 10px;
+}
+.header__nav li::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(to right, #fbbd61, #ec7532);
+  transform: translateX(-59px);
+  transition: all 0.5s;
+  opacity: 0;
+}
+.header__nav li:hover::after {
+  transform: translateX(0px);
+  background-image: linear-gradient(to right, #fbbd61, #ec7532);
+  opacity: 1;
+}
+.header__nav li a {
+  color: black !important;
+  font-weight: 500;
+}
+.header__nav li a:hover {
+  color: #ec7532 !important;
+}
+.header__nav .header__item.active::after {
+  transform: translateX(0px);
+  background-image: linear-gradient(to right, #fbbd61, #ec7532);
+  opacity: 1;
+}
+.header__nav .header__item.active a {
+  color: #ec7532 !important;
+}
+.header .form__button {
+  text-align: right;
+  display: flex;
+  min-width: 100px;
+}
+.header .form__button .logout__content {
+  display: flex;
+  margin-left: auto;
+}
+.header .form__button .logout__content p {
+  text-align: center;
+  padding-top: 12px;
+}
+.header .form__button button {
+  color: #959595;
+  border: none;
+  padding: auto;
+  width: 100px;
+}
+.header .form__button button:hover {
+  color: #ec7532;
+  background-color: white;
+}/*# sourceMappingURL=header.module.css.map */
