@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Tabs } from 'antd'
-import { cineName, getShowTimeRequest, getTheaterNameByCineId } from '../../Redux/Services/cineNameAPI';
-import { useParams } from 'react-router-dom';
-import CineName from './CineName/CineName';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import { Tabs } from "antd";
+import {
+  cineName,
+  getShowTimeRequest,
+  getTheaterNameByCineId,
+} from "../../Redux/Services/cineNameAPI";
+import { useParams } from "react-router-dom";
+import CineName from "./CineName/CineName";
+import { toast } from "react-toastify";
 import styles from "./showtime.module.scss";
-import TheaterName from './TheaterName/TheaterName';
-
+import TheaterName from "./TheaterName/TheaterName";
 
 function Showtime() {
   const [cineList, setCineList] = useState([]);
@@ -22,7 +25,6 @@ function Showtime() {
       const response = await getTheaterNameByCineId(id);
       // cho nay P ghi la response.heThongRapChieu, ma response la 1 array chu khong phai object, nen no k show, P log response la thay no la 1 array
       setTheaterList(response);
-
     } catch (error) {
       toast.error("Không lấy được thông tin cụm rạp chiếu");
     }
@@ -47,13 +49,14 @@ function Showtime() {
 
   useEffect(() => {
     if (cineId) {
-      getTheaterByCineId(cineId)
+      getTheaterByCineId(cineId);
     }
   }, [cineId]);
 
   return (
     <div className="container py-5">
       <Tabs
+        defaultActiveKey="1"
         tabPosition={"left"}
         items={cineList.map((item, index) => {
           const id = String(index + 1);
@@ -70,7 +73,7 @@ function Showtime() {
         })}
       />
     </div>
-  )
+  );
 }
 
-export default Showtime
+export default Showtime;

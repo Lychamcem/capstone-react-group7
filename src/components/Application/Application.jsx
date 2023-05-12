@@ -1,11 +1,10 @@
-import React from 'react'
-import styles from "./application.module.scss";
+import React from "react";
+import styles from "./Application.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Link } from 'react-router-dom';
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 
 function Application() {
   const settings = {
@@ -20,20 +19,24 @@ function Application() {
     <div className={styles.application}>
       <div className="container">
         <div className="row">
-          <div className={`${styles.application__info} col-lg-6 text-left text-lg-left`}>
+          <div
+            className={`${styles.application__info} col-lg-6 text-left text-lg-left`}
+          >
             <h2>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h2>
             <p>
-              Không chỉ đặt vé, bạn có thể bình luận phim, chấm điểm rạp và
-              đổi quà hấp dẫn
+              Không chỉ đặt vé, bạn có thể bình luận phim, chấm điểm rạp và đổi
+              quà hấp dẫn
             </p>
-            <button className="btn btn-danger mb-2">App miễn phí - Tải về ngay!</button>
+            <button className="btn btn-danger mb-2">
+              App miễn phí - Tải về ngay!
+            </button>
             <br />
             <span>
-              Fox có 2 phiên bản {" "}
+              Fox có 2 phiên bản{" "}
               <Link to="#" href="#">
                 iOS
-              </Link> {" "}
-              và {" "}
+              </Link>{" "}
+              và{" "}
               <Link to="#" href="#">
                 Android
               </Link>
@@ -86,8 +89,8 @@ function Application() {
           </div>
         </div>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
 
-export default Application
+export default Application;
