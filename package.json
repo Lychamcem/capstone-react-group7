@@ -1,5 +1,6 @@
 {
   "name": "capstone-react-group7",
+  "homepage": "https://vythaoht.github.io/capstone-react-group7",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,6 +35,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -59,6 +61,7 @@
   },
   "devDependencies": {
     "@types/redux-persist": "^4.3.1",
+    "gh-pages": "^5.0.0",
     "sass": "^1.62.1"
   }
 }
