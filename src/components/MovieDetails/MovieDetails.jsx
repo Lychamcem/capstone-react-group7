@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import styles from "./movieDetails.module.scss";
 
 import { getMoviesAPI } from "../../Redux/Services/moviesAPI";
-import Slider from "react-slick";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import Pagination from "../Pagination/Pagination";
+import MovieDetailsItem from "../MovieDetailsItem/MovieDetailsItem";
 
 function MovieDetails() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
-
-  const navigator = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(8);
 
   const getMovies = async () => {
     try {
@@ -33,6 +35,7 @@ function MovieDetails() {
 
   if (error) return null;
 
+  // Hàm tìm kiếm
   function Search(movies) {
     return movies.filter((item) => {
       return searchParam.some((newItem) => {
@@ -44,13 +47,10 @@ function MovieDetails() {
     });
   }
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-  };
+  // xử lý phân trang
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPost = movies.slice(firstPostIndex, lastPostIndex);
 
   return (
     <div className={styles.movieDetails}>
@@ -72,31 +72,23 @@ function MovieDetails() {
             </button>
           </div>
         </div>
-        <Slider {...settings}>
-          {Search(movies)?.map((item) => {
-            return (
-              <div key={item.maPhim} className={styles.movieDetails__bottom}>
-                <div className={styles.movieDetails__List}>
-                  <div className={styles.moviewDetails__item}>
-                    <img src={item.hinhAnh} alt={item.maPhim} />
-
-                    <div className={styles.movieDetails__title}>
-                      <span>{item.tenPhim}</span>
-                    </div>
-                    <div className={styles.movieDetails__button}>
-                      <button
-                        className="btn btn-primary mt-2"
-                        onClick={() => navigator(`/details/${item.maPhim}`)}
-                      >
-                        Mua vé
-                      </button>
-                    </div>
-                  </div>
+        <div className="container">
+          <div className="row m-2">
+            {Search(currentPost)?.map((item) => {
+              return (
+                <div className="col-sm-6 col-md-4 v my-2">
+                  <MovieDetailsItem movieItem={item} />
                 </div>
-              </div>
-            );
-          })}
-        </Slider>
+              )
+            })}
+            <Pagination
+              totalPosts={movies.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
