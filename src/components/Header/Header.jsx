@@ -23,16 +23,14 @@ function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const showTimesRef = useRef();
-
-  const focusShowTimesRef = () => {
-    showTimesRef.current.focus();
+  const handleSignin = () => {
+    // Chuyển sang trang /login
+    navigate("/login");
   };
 
-
-  const handleSignin = () => {
+  const handleRegister = () => {
     // Chuyển sang trang /register
-    navigate("/login");
+    navigate("/register");
   };
 
   const handleLogOut = () => {
@@ -81,14 +79,19 @@ function Header() {
                 </MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
-            <MDBBtnGroup tag="form" className={`d-flex ${styles.form__button}`}>
+            <MDBBtnGroup tag="form" className={`d-flex ${styles.form__buttonAll}`}>
               {user ? (
                 <div className={styles.logout__content}>
                   <p>{user.hoTen}</p>
-                  <MDBBtn type='button' outline size="sm"  onClick={handleLogOut}>Đăng Xuất</MDBBtn>
+                  <MDBBtn type='button' outline size="sm" onClick={handleLogOut}>Đăng Xuất</MDBBtn>
                 </div>
               ) : (
-                <MDBBtn type='button' outline size="sm" onClick={handleSignin}>Đăng Nhập</MDBBtn>
+                <div className={`d-flex ${styles.form__button}`}>
+                  <MDBBtn type='button' outline size="sm" onClick={handleRegister}>Đăng Ký</MDBBtn>
+
+                  <MDBBtn type='button' outline size="sm" onClick={handleSignin}>Đăng nhập</MDBBtn>
+                </div>
+
               )}
             </MDBBtnGroup>
           </MDBCollapse>
