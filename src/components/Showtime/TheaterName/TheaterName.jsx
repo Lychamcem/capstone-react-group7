@@ -7,62 +7,63 @@ import { getShowTimeByCineIdAndGroupIdAPI } from "../../../Redux/Services/cineNa
 import { toast } from "react-toastify";
 
 function TheaterName({ cineId, theaterList }) {
-  const [movieList, setMovieList] = useState([]);
-  const [complexCineId, setComplexCineId] = useState("");
+    const [movieList, setMovieList] = useState([]);
+    const [complexCineId, setComplexCineId] = useState("");
 
-  const getShowTimeByCineIdAndGroupId = async (cineId) => {
-    try {
-      const respone = await getShowTimeByCineIdAndGroupIdAPI(cineId);
-      setMovieList(respone);
-    } catch (error) {
-      toast.error("Không lấy được thông tin lịch chiếu");
-    }
-  };
+    const getShowTimeByCineIdAndGroupId = async (cineId) => {
+        try {
+            const respone = await getShowTimeByCineIdAndGroupIdAPI(cineId);
+            setMovieList(respone);
+        } catch (error) {
+            toast.error("Không lấy được thông tin lịch chiếu");
+        }
+    };
 
-  useEffect(() => {
-    if (cineId) {
-      getShowTimeByCineIdAndGroupId(cineId);
-    }
-  }, [cineId]);
+    useEffect(() => {
+        if (cineId) {
+            getShowTimeByCineIdAndGroupId(cineId);
+        }
+    }, [cineId]);
 
-  return (
-    <div className={cls("py-3", styles.theater__content)}>
-      {theaterList.length && (
-        <Tabs
-          tabPosition={"left"}
-          style={{
-            whiteSpace: "initial",
-          }}
-          items={theaterList.map((item, index) => {
-            const id = String(index + 1);
-            return {
-              label: (
-                <div className={cls("col-1", styles.theater__text)}>
-                  <p>{item.tenCumRap}</p>
-                  <span>{item.diaChi}</span>
-                  <br />
-                  <button
-                    onClick={() => {
-                      setComplexCineId(item.maCumRap);
+    return (
+        <div className={cls("py-3", styles.theater__content)}>
+            {theaterList.length && (
+                <Tabs
+                    tabPosition={"left"}
+                    style={{
+                        whiteSpace: "initial",
+                        height: 550,
                     }}
-                  >
-                    [ Chi tiết ]
-                  </button>
-                </div>
-              ),
-              key: id,
-              children: (
-                <MovieList
-                  complexCineId={complexCineId}
-                  movieList={movieList}
+                    items={theaterList.map((item, index) => {
+                        const id = String(index + 1);
+                        return {
+                            label: (
+                                <div className={cls("col-1", styles.theater__text)}>
+                                    <p>{item.tenCumRap}</p>
+                                    <span>{item.diaChi}</span>
+                                    <br />
+                                    <button
+                                        onClick={() => {
+                                            setComplexCineId(item.maCumRap);
+                                        }}
+                                    >
+                                        [ Chi tiết ]
+                                    </button>
+                                </div>
+                            ),
+                            key: id,
+                            children: (
+                                <MovieList
+                                    complexCineId={complexCineId}
+                                    movieList={movieList}
+                                />
+                            ),
+                        };
+                    })}
                 />
-              ),
-            };
-          })}
-        />
-      )}
-    </div>
-  );
+            )}
+        </div>
+    );
 }
 
 export default TheaterName;
