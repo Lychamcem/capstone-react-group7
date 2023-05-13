@@ -38,7 +38,7 @@ function TheaterName({ cineId, theaterList }) {
                         const id = String(index + 1);
                         return {
                             label: (
-                                <div className={cls("col-1", styles.theater__text)}>
+                                <div className={styles.theater__text}>
                                     <p>{item.tenCumRap}</p>
                                     <span>{item.diaChi}</span>
                                     <br />

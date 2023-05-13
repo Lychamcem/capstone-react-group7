@@ -6,9 +6,6 @@
 
   .film__content {
     display: flex;
-    align-items: top;
-    height: 200px;
-
 
     .film__img {
       img {
@@ -18,17 +15,35 @@
       }
     }
 
-    .row {
-      row-gap: 20px;
+    .showTime__content {
+      .showTime__box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
 
-      .showTime {
-        color: black;
-        background-color: rgb(237, 222, 222);
-        text-align: center;
-        padding: 10px;
-        text-decoration: none;
-        display: inline-block;
+        .showTime {
+          color: black;
+          background-color: rgb(237, 222, 222);
+          text-align: center;
+          padding: 10px;
+          text-decoration: none;
+          display: inline-block;
+        }
       }
     }
+
+
+    // .row {
+    //   row-gap: 20px;
+
+    //   .showTime {
+    //     color: black;
+    //     background-color: rgb(237, 222, 222);
+    //     text-align: center;
+    //     padding: 10px;
+    //     text-decoration: none;
+    //     display: inline-block;
+    //   }
+    // }
   }
 }

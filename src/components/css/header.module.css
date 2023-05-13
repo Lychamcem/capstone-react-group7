@@ -42,26 +42,26 @@
 .header__nav .header__item.active a {
   color: #ec7532 !important;
 }
-.header .form__button {
+.header .form__buttonAll {
   text-align: right;
   display: flex;
   min-width: 100px;
 }
-.header .form__button .logout__content {
+.header .form__buttonAll .logout__content {
   display: flex;
   margin-left: auto;
 }
-.header .form__button .logout__content p {
+.header .form__buttonAll .logout__content p {
   text-align: center;
   padding-top: 12px;
 }
-.header .form__button button {
+.header .form__buttonAll button {
   color: #959595;
   border: none;
   padding: auto;
   width: 100px;
 }
-.header .form__button button:hover {
+.header .form__buttonAll button:hover {
   color: #ec7532;
   background-color: white;
 }/*# sourceMappingURL=header.module.css.map */

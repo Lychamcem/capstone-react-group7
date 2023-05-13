@@ -24,9 +24,9 @@ function MovieList({ complexCineId, movieList }) {
                     <LazyLoadImage src={film.hinhAnh} alt={item.maPhim} />
                   </div>
 
-                  <div className={cls("d-flex row mx-2")}>
+                  <div className={cls("mx-2", styles.showTime__content)}>
                     <h5>{film.tenPhim}</h5>
-                    <div className={cls("d-flex row w-100", styles.row)}>
+                    <div className={styles.showTime__box}>
                       {film.lstLichChieuTheoPhim.map((value) => {
                         return (
                           <div key={value.maLichChieu}>
