@@ -11,7 +11,7 @@ function MovieList({ complexCineId, movieList }) {
   );
   return (
     <div>
-      <div className="py-3">
+      <div className={cls("py-3", styles.film__list)}>
         {movieListFilter?.map((item) => {
           return item.danhSachPhim.map((film) => {
             {

@@ -1,33 +1,34 @@
-.film__content {
-  display: flex;
-  align-items: top;
-  height: 200px;
+.film__list {
+  border: 1px solid #dee2e6;
+  max-height: 550px;
+  height: 550px;
   overflow-y: auto;
 
+  .film__content {
+    display: flex;
+    align-items: top;
+    height: 200px;
 
-  .film__img {
-    img {
-      width: 150px;
-      height: 200px;
-      object-fit: fill;
+
+    .film__img {
+      img {
+        width: 150px;
+        height: 200px;
+        object-fit: fill;
+      }
     }
-  }
 
-  .row {
-    row-gap: 20px;
+    .row {
+      row-gap: 20px;
 
-    .showTime {
-      color: black;
-      background-color: rgb(237, 222, 222);
-      text-align: center;
-      padding: 10px;
-      text-decoration: none;
-      display: inline-block;
+      .showTime {
+        color: black;
+        background-color: rgb(237, 222, 222);
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        display: inline-block;
+      }
     }
-  }
-
-  .title {
-    font-size: 20px;
-    color: rgb(139, 195, 74);
   }
 }
