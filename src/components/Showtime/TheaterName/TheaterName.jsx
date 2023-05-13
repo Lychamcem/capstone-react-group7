@@ -38,7 +38,10 @@ function TheaterName({ cineId, theaterList }) {
                         const id = String(index + 1);
                         return {
                             label: (
-                                <div className={styles.theater__text}>
+                                <div className={styles.theater__text}
+                                    onClick={() => {
+                                        setComplexCineId(item.maCumRap);
+                                    }}>
                                     <p>{item.tenCumRap}</p>
                                     <span>{item.diaChi}</span>
                                     <br />
