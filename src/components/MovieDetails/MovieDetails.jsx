@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./MovieDetails.module.scss";
+import styles from "./movieDetails.module.scss";
 
 import { getMoviesAPI } from "../../Redux/Services/moviesAPI";
 import Slider from "react-slick";
