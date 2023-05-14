@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./MovieDetails.module.scss";
+import styles from "./movieDetails.module.scss";
 
 import { getMoviesAPI } from "../../Redux/Services/moviesAPI";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Pagination from "../Pagination/Pagination";
 import MovieDetailsItem from "../MovieDetailsItem/MovieDetailsItem";
 
@@ -53,7 +51,7 @@ function MovieDetails() {
   const currentPost = movies.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <div className={styles.movieDetails}>
+    <div className={styles.movieDetails} id="showTime">
       <div className="container">
         <div className={`${styles.movieDetails__top} mt-4`}>
           <div className="input-group mb-3">

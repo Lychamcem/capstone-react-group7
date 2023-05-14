@@ -1,5 +1,8 @@
 .movieDetails__item {
     margin-right: 20px;
+    transform: translateY(0);
+    transition: all .5s;
+    cursor: pointer;
 
     img {
         border-radius: 10px;
@@ -18,5 +21,8 @@
             text-overflow: ellipsis;
         }
     }
+}
 
+.movieDetails__item:hover {
+    transform: translateY(-20px);
 }

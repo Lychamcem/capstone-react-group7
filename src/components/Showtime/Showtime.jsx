@@ -54,7 +54,7 @@ function Showtime() {
   }, [cineId]);
 
   return (
-    <div className="container py-5">
+    <div className="container py-5" id="theaterCluster">
       <Tabs
         defaultActiveKey="1"
         tabPosition={"left"}

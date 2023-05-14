@@ -59,12 +59,12 @@ function Header() {
               className={`mr-auto mb-2 mb-lg-0 ${styles.header__nav}`}
             >
               <MDBNavbarItem className={styles.header__item}>
-                <MDBNavbarLink active aria-current="page" href="#">
+                <MDBNavbarLink active aria-current="page" href="#showTime">
                   Lịch chiếu
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem className={styles.header__item}>
-                <MDBNavbarLink href="#">Cụm rạp</MDBNavbarLink>
+                <MDBNavbarLink href="#theaterCluster">Cụm rạp</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem className={styles.header__item}>
                 <MDBNavbarLink href="#news" to="/news">
@@ -72,7 +72,7 @@ function Header() {
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem className={styles.header__item}>
-                <MDBNavbarLink href="#">Ứng dụng</MDBNavbarLink>
+                <MDBNavbarLink href="#application">Ứng dụng</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
             <MDBBtnGroup

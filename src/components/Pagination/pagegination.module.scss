@@ -13,15 +13,14 @@
     border: 1px solid #949494;
 
     &:hover {
-        background-color: #fff;
+        background-color: #ec7532;
         border-color: #fb4226;
-        color: #ec7532 !important;
+        color: #fff !important;
     }
 }
 
 .pagination button.active {
-    background-image: linear-gradient(to right, #fbbd61, #ec7532);
+    background: #ec7532;
     color: white;
-    padding: 10px 25px;
-    border-radius: 30px !important;
+    border-radius: 2px !important;
 }

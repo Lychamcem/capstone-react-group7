@@ -15,6 +15,7 @@ function MovieDetailsItem({ movieItem }) {
                         className="img-fluid"
                         src={movieItem.hinhAnh}
                         alt={movieItem.maPhim}
+                        onClick={() => navigator(`/details/${movieItem.maPhim}`)}
                     />
 
                     <div className={styles.movieDetails__title}>
