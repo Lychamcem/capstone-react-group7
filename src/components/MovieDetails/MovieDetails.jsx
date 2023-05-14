@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./movieDetails.module.scss";
+import styles from "./MovieDetails.module.scss";
 
 import { getMoviesAPI } from "../../Redux/Services/moviesAPI";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -79,7 +79,7 @@ function MovieDetails() {
                 <div className="col-sm-6 col-md-4 v my-2">
                   <MovieDetailsItem movieItem={item} />
                 </div>
-              )
+              );
             })}
             <Pagination
               totalPosts={movies.length}

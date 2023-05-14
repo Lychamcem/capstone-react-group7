@@ -1,11 +1,11 @@
-import React from 'react'
-import styles from './footer.module.scss'
-import { Link } from 'react-router-dom'
+import React from "react";
+import styles from "./footer.module.scss";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer>
-      <div className='container'>
+      <div className="container">
         <div className={styles.footer__content}>
           <div className={styles.footer__top}>
             <div className={`row ${styles.footer__info}`}>
@@ -38,7 +38,9 @@ function Footer() {
                 </ul>
               </div>
 
-              <div className={`col-md-4 ${styles.top__item} ${styles.img__col}`}>
+              <div
+                className={`col-md-4 ${styles.top__item} ${styles.img__col}`}
+              >
                 <h6 className={styles.top__title}>ĐỐI TÁC</h6>
 
                 <ul className={styles.img__list}>
@@ -51,7 +53,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-cgv.png"
+                        src="/image/logo-cgv.png"
                         alt="cgv"
                         className="img-fluid"
                       />
@@ -67,7 +69,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-bhd.png"
+                        src="/image/logo-bhd.png"
                         alt="bhd"
                         className="img-fluid"
                       />
@@ -83,7 +85,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-galaxy.png"
+                        src="/image/logo-galaxy.png"
                         alt="galaxy"
                         className="img-fluid"
                       />
@@ -99,7 +101,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-star.png"
+                        src="/image/logo-star.png"
                         alt="cinestar"
                         className="img-fluid"
                       />
@@ -115,7 +117,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-lotte.png"
+                        src="/image/logo-lotte.png"
                         alt="lotte"
                         className="img-fluid"
                       />
@@ -131,7 +133,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-mega.png"
+                        src="/image/logo-mega.png"
                         alt="mega"
                         className="img-fluid"
                       />
@@ -147,7 +149,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-beta.jpg"
+                        src="/image/logo-beta.jpg"
                         alt="beta"
                         className="img-fluid"
                       />
@@ -163,7 +165,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-ddc.png"
+                        src="/image/logo-ddc.png"
                         alt="ddc"
                         className="img-fluid"
                       />
@@ -179,7 +181,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-touch.png"
+                        src="/image/logo-touch.png"
                         alt="touch"
                         className="img-fluid"
                       />
@@ -195,7 +197,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-cinemax.jpg"
+                        src="/image/logo-cinemax.jpg"
                         alt="cinemax"
                         className="img-fluid"
                       />
@@ -211,7 +213,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-starlight.png"
+                        src="/image/logo-starlight.png"
                         alt="starlight"
                         className="img-fluid"
                       />
@@ -227,7 +229,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-dcine.png"
+                        src="/image/logo-dcine.png"
                         alt="dcine"
                         className="img-fluid"
                       />
@@ -243,7 +245,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-zalopay.png"
+                        src="/image/logo-zalopay.png"
                         alt="zalopay"
                         className="img-fluid"
                       />
@@ -259,7 +261,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-payoo.png"
+                        src="/image/logo-payoo.png"
                         alt="payoo"
                         className="img-fluid"
                       />
@@ -275,7 +277,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-vietcombank.png"
+                        src="/image/logo-vietcombank.png"
                         alt="vietcombank"
                         className="img-fluid"
                       />
@@ -291,7 +293,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-agribank.png"
+                        src="/image/logo-agribank.png"
                         alt="agribank"
                         className="img-fluid"
                       />
@@ -307,7 +309,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-vietinbank.png"
+                        src="/image/logo-vietinbank.png"
                         alt="vietinbank"
                         className="img-fluid"
                       />
@@ -323,7 +325,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-ivb.png"
+                        src="/image/logo-ivb.png"
                         alt="ivb"
                         className="img-fluid"
                       />
@@ -339,7 +341,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-123go.png"
+                        src="/image/logo-123go.png"
                         alt="123go"
                         className="img-fluid"
                       />
@@ -355,7 +357,7 @@ function Footer() {
                       target="_blank"
                     >
                       <img
-                        src="../image/logo-laban.jpg"
+                        src="/image/logo-laban.jpg"
                         alt="laban"
                         className="img-fluid"
                       />
@@ -364,23 +366,31 @@ function Footer() {
                 </ul>
               </div>
 
-              <div className={`col-md-2 ${styles.top__item} ${styles.mobile__app}`}>
+              <div
+                className={`col-md-2 ${styles.top__item} ${styles.mobile__app}`}
+              >
                 <h6 className={styles.top__title}>MOBILE APP</h6>
                 <ul className={styles.logo__list}>
                   <li className={styles.logo__item}>
-                    <Link className={styles.logo__link} href="https://apps.apple.com/vn/app/tix-%C4%91%E1%BA%B7t-v%C3%A9-nhanh-nh%E1%BA%A5t/id615186197">
+                    <Link
+                      className={styles.logo__link}
+                      href="https://apps.apple.com/vn/app/tix-%C4%91%E1%BA%B7t-v%C3%A9-nhanh-nh%E1%BA%A5t/id615186197"
+                    >
                       <img
                         className="pl-0"
-                        src='../image/logo-apple.png'
+                        src="/image/logo-apple.png"
                         alt="apple"
                       />
                     </Link>
                   </li>
                   <li className={styles.logo__item}>
-                    <Link className={styles.logo__link} href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123">
+                    <Link
+                      className={styles.logo__link}
+                      href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123"
+                    >
                       <img
                         className="pl-0"
-                        src='../image/logo-android.png'
+                        src="/image/logo-android.png"
                         alt="android"
                       />
                     </Link>
@@ -396,7 +406,7 @@ function Footer() {
                     <Link className={styles.logo__link} href="#">
                       <img
                         className={`${styles.img__social} pl-0`}
-                        src='../image/logo-facebook.png'
+                        src="/image/logo-facebook.png"
                         alt="facebook"
                       />
                     </Link>
@@ -405,7 +415,7 @@ function Footer() {
                     <Link className={styles.logo__link} href="#">
                       <img
                         className={`${styles.img__social} pl-0`}
-                        src='../image/logo-zalo.png'
+                        src="/image/logo-zalo.png"
                         alt="zalo"
                       />
                     </Link>
@@ -418,28 +428,50 @@ function Footer() {
           <hr className={styles.division__line} />
 
           <div className={styles.footer__bottom}>
-            <div className='row'>
-              <div className={`${styles.footer__left} col-md-2 col-xs-12 col-sm-12`}>
-                <img className='img-fuild' src='../image/zion.jpg' alt='zion' />
+            <div className="row">
+              <div
+                className={`${styles.footer__left} col-md-2 col-xs-12 col-sm-12`}
+              >
+                <img className="img-fuild" src="/image/zion.jpg" alt="zion" />
               </div>
 
-              <div className={`${styles.footer__middle} col-md-8 col-sm-12 col-xs-12`}>
-                <h6 className={styles.footer__title}>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</h6>
-                <h6 className={styles.footer__h6}>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.</h6>
-                <h6 className={styles.footer__h6}>Giấy chứng nhận đăng ký kinh doanh số: 0101659783,</h6>
-                <h6 className={styles.footer__h6}>đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.</h6>
-                <h6 className={styles.footer__h6}>Số Điện Thoại (Hotline): 1900 545 436</h6>
+              <div
+                className={`${styles.footer__middle} col-md-8 col-sm-12 col-xs-12`}
+              >
+                <h6 className={styles.footer__title}>
+                  TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION
+                </h6>
+                <h6 className={styles.footer__h6}>
+                  Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp.
+                  Hồ Chí Minh, Việt Nam.
+                </h6>
+                <h6 className={styles.footer__h6}>
+                  Giấy chứng nhận đăng ký kinh doanh số: 0101659783,
+                </h6>
+                <h6 className={styles.footer__h6}>
+                  đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở
+                  kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.
+                </h6>
+                <h6 className={styles.footer__h6}>
+                  Số Điện Thoại (Hotline): 1900 545 436
+                </h6>
               </div>
 
-              <div className={`${styles.footer__right} col-md-2 col-xs-12 col-sm-12`}>
-                <img className='img-fuild' src='../image/dathongbao.png' alt='dathongbao' />
+              <div
+                className={`${styles.footer__right} col-md-2 col-xs-12 col-sm-12`}
+              >
+                <img
+                  className="img-fuild"
+                  src="/image/dathongbao.png"
+                  alt="dathongbao"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
