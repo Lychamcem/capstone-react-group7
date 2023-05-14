@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Application.module.scss";
+import styles from "./application.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -16,7 +16,7 @@ function Application() {
   };
 
   return (
-    <div className={styles.application}>
+    <div className={styles.application} id="application">
       <div className="container">
         <div className="row">
           <div

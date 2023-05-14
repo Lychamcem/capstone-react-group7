@@ -24,7 +24,7 @@ function News() {
     };
 
     return (
-        <section className={styles.news}>
+        <section className={styles.news} id='news'>
             <MDBTabs tab justify className={cls("container mb-3", styles.news__content)}>
                 <MDBTabsItem>
                     <MDBTabsLink onClick={() => handleBasicClick('tab1')} active={basicActive === 'tab1'}>

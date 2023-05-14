@@ -13,7 +13,7 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }) {
                 return (
                     <button
                         key={index}
-                        className={page === currentPage ? 'active' : ''}
+                        className={page === currentPage ? `${styles.active}` : ''}
                         onClick={() => setCurrentPage(page)}
                     >
                         {page}
