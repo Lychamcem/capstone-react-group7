@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 
 function HomeTemplate() {
   return (
-    <div>
+    <div style={{ marginTop: "74px" }}>
       <Header />
       <Outlet />
       <Footer />
