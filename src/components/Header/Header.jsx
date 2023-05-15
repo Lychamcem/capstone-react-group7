@@ -13,7 +13,6 @@ import {
   MDBBtnGroup,
   MDBIcon,
   MDBNavbarNav,
-  MDBBtn,
 } from "mdb-react-ui-kit";
 
 function Header() {
@@ -81,35 +80,49 @@ function Header() {
             >
               {user ? (
                 <div className={styles.logout__content}>
-                  <p>{user.hoTen}</p>
-                  <MDBBtn
+                  <p className={styles.infoUser}>
+                    <span className={styles.iconUser}>
+                      <i class="fa fa-user-circle"></i>
+                    </span>
+                    {user.hoTen}
+                  </p>
+                  <button
                     type="button"
                     outline
                     size="sm"
                     onClick={handleLogOut}
                   >
+                    <span className={styles.iconUser}>
+                      <i class="fa fa-sign-out-alt"></i>
+                    </span>
                     Đăng Xuất
-                  </MDBBtn>
+                  </button>
                 </div>
               ) : (
                 <div className={`d-flex ${styles.form__button}`}>
-                  <MDBBtn
+                  <button
                     type="button"
                     outline
                     size="sm"
                     onClick={handleRegister}
                   >
+                    <span className={styles.iconUser}>
+                      <i class="fa fa-user-circle"></i>
+                    </span>
                     Đăng Ký
-                  </MDBBtn>
+                  </button>
 
-                  <MDBBtn
+                  <button
                     type="button"
                     outline
                     size="sm"
                     onClick={handleSignin}
                   >
+                    <span className={styles.iconUser}>
+                      <i class="fa fa-user-circle"></i>
+                    </span>
                     Đăng nhập
-                  </MDBBtn>
+                  </button>
                 </div>
               )}
             </MDBBtnGroup>
