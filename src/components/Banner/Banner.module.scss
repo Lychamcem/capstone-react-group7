@@ -12,17 +12,6 @@
     height: 500px;
   }
 
-  .slick-dots {
-    li.slick-active {
-      button {
-        &::before {
-          font-size: 11px;
-          color: #ec7532;
-        }
-      }
-    }
-  }
-
   .banner__inner {
     position: relative;
   }
@@ -66,29 +55,20 @@
     }
   }
 
-  .slides {
-    color: gray;
+  .trailerPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 1;
 
-    .slick-prev {
+    .trailerContainer {
       position: absolute;
       top: 50%;
-      z-index: 1;
-      left: 30px;
-
-      &::before {
-        font-size: 35px;
-      }
-    }
-
-    .slick-next {
-      position: absolute;
-      top: 50%;
-      right: 50px;
-      z-index: 1;
-
-      &::before {
-        font-size: 35px;
-      }
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }

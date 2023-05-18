@@ -4,21 +4,24 @@ import Slider from "react-slick";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./Banner.module.scss";
-import ModalTrailer from "../ModalTrailer/ModalTrailer";
+import styles from "./banner.module.scss";
 import { getBannersAPI } from "../../Redux/Services/bannerAPI";
+import ReactPlayer from "react-player";
+import SampleNextArrow from "../SampleNextArrow/SampleNextArrow";
+import SamplePrevArrow from "../SamplePrevArrow/SamplePrevArrow";
+import { toast } from "react-toastify";
 
 function Banner() {
   const [banners, setBanners] = useState([]);
   const [error, setError] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [showTrailer, setShowTrailer] = useState(false);
 
   const getBanners = async () => {
     try {
       const data = await getBannersAPI();
       setBanners(data.content);
     } catch (error) {
-      setError(error.response?.data?.content);
+      toast.setError("Không lấy được thông tin banner");
     }
   };
 
@@ -29,14 +32,23 @@ function Banner() {
   if (error) return null;
 
   const settings = {
-    className: "section-outstanding__slider",
-    arrows: false,
+    dots: false,
     infinite: true,
-    dots: true,
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <section className={styles.banner}>
@@ -50,33 +62,24 @@ function Banner() {
                 className="img-fluid"
               />
 
-              <div className={styles.banner__trailer}>
+              <div className={styles.banner__trailer} onClick={() => setShowTrailer(true)}>
                 <a href="#" data-lity>
                   <i className="fa fa-play" />
                 </a>
-
-                {/* <Modal isOpen={true} onRequestClose={() => setIsOpen(false)}>
-                                        {banners?.map((item) => {
-                                            <div key={item.maPhim} className=''>
-                                                <ReactPlayer
-                                                    url="https://www.youtube.com/watch?v=99J9RdkBppM"
-                                                    width="100px"
-                                                    height="100px"
-                                                    playing={true}
-                                                    controls={false}
-                                                />
-                                            </div>
-                                        })}
-
-                                    </Modal> */}
               </div>
-
-              <ModalTrailer
-                trailer={item.trailer}
-                // maPhim={item.maPhim}
-                isOpen={isOpen}
-                onClose={() => setIsOpen(false)}
-              />
+              {showTrailer && (
+                <div
+                  className={styles.trailerPopup}
+                  onClick={() => setShowTrailer(false)}
+                >
+                  <div className={styles.trailerContainer}>
+                    <ReactPlayer
+                      url={item.trailer}
+                    // playing={true}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}

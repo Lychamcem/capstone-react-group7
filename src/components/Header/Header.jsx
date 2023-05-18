@@ -82,7 +82,7 @@ function Header() {
                 <div className={styles.logout__content}>
                   <p className={styles.infoUser}>
                     <span className={styles.iconUser}>
-                      <i class="fa fa-user-circle"></i>
+                      <i className="fa fa-user-circle"></i>
                     </span>
                     {user.hoTen}
                   </p>
@@ -93,7 +93,7 @@ function Header() {
                     onClick={handleLogOut}
                   >
                     <span className={styles.iconUser}>
-                      <i class="fa fa-sign-out-alt"></i>
+                      <i className="fa fa-sign-out-alt"></i>
                     </span>
                     Đăng Xuất
                   </button>
@@ -107,7 +107,7 @@ function Header() {
                     onClick={handleRegister}
                   >
                     <span className={styles.iconUser}>
-                      <i class="fa fa-user-circle"></i>
+                      <i className="fa fa-user-circle"></i>
                     </span>
                     Đăng Ký
                   </button>
@@ -119,7 +119,7 @@ function Header() {
                     onClick={handleSignin}
                   >
                     <span className={styles.iconUser}>
-                      <i class="fa fa-user-circle"></i>
+                      <i className="fa fa-user-circle"></i>
                     </span>
                     Đăng nhập
                   </button>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./MovieDetails.module.scss";
+import styles from "./movieDetails.module.scss";
 
 import { getMoviesAPI } from "../../Redux/Services/moviesAPI";
 import Pagination from "../Pagination/Pagination";
@@ -74,7 +74,7 @@ function MovieDetails() {
           <div className="row m-2">
             {Search(currentPost)?.map((item) => {
               return (
-                <div className="col-sm-6 col-md-4 v my-2">
+                <div key={item.maPhim} className="col-sm-6 col-md-4 v my-2">
                   <MovieDetailsItem movieItem={item} />
                 </div>
               );
