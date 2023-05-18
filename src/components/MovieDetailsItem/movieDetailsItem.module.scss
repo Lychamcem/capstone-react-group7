@@ -1,13 +1,20 @@
 .movieDetails__item {
-    margin-right: 20px;
     transform: translateY(0);
     transition: all .5s;
     cursor: pointer;
 
+    &:hover {
+        transform: translateY(-20px);
+
+        .banner__trailer {
+            opacity: 1 !important;
+        }
+    }
+
     img {
         border-radius: 10px;
         width: 100%;
-        height: 400px;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -21,8 +28,82 @@
             text-overflow: ellipsis;
         }
     }
+
+    button {
+        color: #949494;
+        border: 1px solid #949494;
+
+        &:hover {
+            background-color: #fff;
+            border-color: #fb4226;
+            color: #ec7532 !important;
+        }
+    }
+
+    button.active {
+        background-image: linear-gradient(to right, #fbbd61, #ec7532);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px !important;
+    }
+
+    .movieDetails__button {
+        text-align: center;
+    }
 }
 
-.movieDetails__item:hover {
-    transform: translateY(-20px);
+.banner__trailer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -110%) scale(1);
+    color: white !important;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s;
+    cursor: pointer !important;
+
+    i {
+        padding: 25px;
+        border: 2px solid white;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer !important;
+        transition: all 0.5s;
+        font-size: 25px;
+        transform: scale(1);
+
+        &:hover {
+            transform: scale(1.1);
+            border-color: #fbbd61;
+            color: #fbbd61;
+            cursor: pointer !important;
+        }
+
+        @media screen and (max-width: "768px") {
+            font-size: 20px;
+            padding: 20px;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.trailerPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 1;
+
+    .trailerContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

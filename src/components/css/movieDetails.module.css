@@ -1,22 +1,3 @@
 .movieDetails {
   background-color: #fff;
-}
-.movieDetails__bottom {
-  width: 100%;
-}
-.movieDetails__bottom .movieDetails__List {
-  display: grid;
-  grid-template-columns: 1;
-  text-align: center;
-  gap: 35px;
-}
-.movieDetails__bottom .movieDetails__List .moviewDetails__item {
-  margin-right: 20px;
-}
-.movieDetails__bottom .movieDetails__List .moviewDetails__item img {
-  border-radius: 10px;
-  width: 100%;
-  height: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
 }/*# sourceMappingURL=movieDetails.module.css.map */
