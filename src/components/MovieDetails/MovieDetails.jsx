@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./movieDetails.module.scss";
+import styles from "./MovieDetails.module.scss";
 
 import { getMoviesAPI } from "../../Redux/Services/moviesAPI";
 import Pagination from "../Pagination/Pagination";

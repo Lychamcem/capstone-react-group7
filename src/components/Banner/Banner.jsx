@@ -1,20 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./banner.module.scss"; 
+import styles from "./Banner.module.scss";
 import { getBannersAPI } from "../../Redux/Services/bannerAPI";
-import ReactPlayer from "react-player";
 import SampleNextArrow from "../SampleNextArrow/SampleNextArrow";
 import SamplePrevArrow from "../SamplePrevArrow/SamplePrevArrow";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function Banner() {
   const [banners, setBanners] = useState([]);
   const [error, setError] = useState(null);
-  const [showTrailer, setShowTrailer] = useState(false);
 
   const getBanners = async () => {
     try {
@@ -62,24 +61,11 @@ function Banner() {
                 className="img-fluid"
               />
 
-              <div className={styles.banner__trailer} onClick={() => setShowTrailer(true)}>
-                <a href="#" data-lity>
+              <div className={styles.banner__trailer}>
+                <Link to={`/details/${item.maPhim}`} data-lity>
                   <i className="fa fa-play" />
-                </a>
+                </Link>
               </div>
-              {showTrailer && (
-                <div
-                  className={styles.trailerPopup}
-                  onClick={() => setShowTrailer(false)}
-                >
-                  <div className={styles.trailerContainer}>
-                    <ReactPlayer
-                      url={item.trailer}
-                    // playing={true}
-                    />
-                  </div>
-                </div>
-              )}
             </div>
           );
         })}
