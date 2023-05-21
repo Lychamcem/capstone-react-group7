@@ -1,17 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Banner.module.scss";
-import ModalTrailer from "../ModalTrailer/ModalTrailer";
 import { getBannersAPI } from "../../Redux/Services/bannerAPI";
+import { Link } from "react-router-dom";
 
 function Banner() {
   const [banners, setBanners] = useState([]);
   const [error, setError] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   const getBanners = async () => {
     try {
@@ -51,32 +50,10 @@ function Banner() {
               />
 
               <div className={styles.banner__trailer}>
-                <a href="#" data-lity>
+                <Link to={`/details/${item.maPhim}`} data-lity>
                   <i className="fa fa-play" />
-                </a>
-
-                {/* <Modal isOpen={true} onRequestClose={() => setIsOpen(false)}>
-                                        {banners?.map((item) => {
-                                            <div key={item.maPhim} className=''>
-                                                <ReactPlayer
-                                                    url="https://www.youtube.com/watch?v=99J9RdkBppM"
-                                                    width="100px"
-                                                    height="100px"
-                                                    playing={true}
-                                                    controls={false}
-                                                />
-                                            </div>
-                                        })}
-
-                                    </Modal> */}
+                </Link>
               </div>
-
-              <ModalTrailer
-                trailer={item.trailer}
-                // maPhim={item.maPhim}
-                isOpen={isOpen}
-                onClose={() => setIsOpen(false)}
-              />
             </div>
           );
         })}
