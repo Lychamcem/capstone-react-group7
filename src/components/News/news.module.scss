@@ -32,13 +32,6 @@
         }
     }
 
-    button.active {
-        background-image: linear-gradient(to right, #fbbd61, #ec7532);
-        color: white;
-        padding: 10px 25px;
-        border-radius: 30px !important;
-    }
-
     button {
         color: #949494;
         border: 1px solid #949494;
@@ -49,6 +42,14 @@
             color: #ec7532 !important;
         }
     }
+    
+    button.active {
+        background-image: linear-gradient(to right, #fbbd61, #ec7532);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px !important;
+    }
+
 
     &__img {
         img {

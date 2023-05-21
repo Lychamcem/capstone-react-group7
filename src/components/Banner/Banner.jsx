@@ -6,6 +6,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Banner.module.scss";
 import { getBannersAPI } from "../../Redux/Services/bannerAPI";
+import SampleNextArrow from "../SampleNextArrow/SampleNextArrow";
+import SamplePrevArrow from "../SamplePrevArrow/SamplePrevArrow";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 function Banner() {
@@ -17,7 +20,7 @@ function Banner() {
       const data = await getBannersAPI();
       setBanners(data.content);
     } catch (error) {
-      setError(error.response?.data?.content);
+      toast.setError("Không lấy được thông tin banner");
     }
   };
 
@@ -28,14 +31,23 @@ function Banner() {
   if (error) return null;
 
   const settings = {
-    className: "section-outstanding__slider",
-    arrows: false,
+    dots: false,
     infinite: true,
-    dots: true,
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <section className={styles.banner}>
