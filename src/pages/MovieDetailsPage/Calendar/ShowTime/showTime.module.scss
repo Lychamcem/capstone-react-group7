@@ -1,3 +1,13 @@
+.showTimeTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px 0;
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .row {
   row-gap: 20px;
   .showTime {

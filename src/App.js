@@ -1,14 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
 import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
-import BookingPage from "./pages/BookingPage/BookingPage";
-import HomePage from "./pages/HomePage/HomePage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
+const BookingPage = lazy(() => import("./pages/BookingPage/BookingPage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const MovieDetailsPage = lazy(() =>
+  import("./pages/MovieDetailsPage/MovieDetailsPage")
+);
+const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 
 function App() {
   return (
-    <div>
+    <Suspense fallback={<h1>Loading ...</h1>}>
       <BrowserRouter>
         <Routes>
           <Route path="" element={<HomeTemplate />}>
@@ -20,7 +24,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </div>
+    </Suspense>
   );
 }
 

@@ -71,6 +71,7 @@ function BookingPage() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getSeats(showTimeId);
   }, []);
   return (

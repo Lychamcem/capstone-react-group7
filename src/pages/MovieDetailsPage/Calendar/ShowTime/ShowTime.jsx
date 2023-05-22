@@ -9,6 +9,14 @@ function ShowTime({ cineId, timeDate }) {
     return item.maHeThongRap === cineId;
   });
 
+  if (!cineSelected.length) {
+    return (
+      <div className={styles.showTimeTitle}>
+        <div>Hiện chưa có suất chiếu, vui lòng chọn rạp khác</div>
+      </div>
+    );
+  }
+
   return (
     <div className="py-3">
       {cineSelected.map((item) => {
