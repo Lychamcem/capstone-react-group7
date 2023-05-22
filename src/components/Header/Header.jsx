@@ -88,7 +88,6 @@ function Header() {
                   </p>
                   <button
                     type="button"
-                    outline
                     size="sm"
                     onClick={handleLogOut}
                   >

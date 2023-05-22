@@ -4,7 +4,7 @@ import Slider from "react-slick";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./Banner.module.scss";
+import styles from "./banner.module.scss";
 import { getBannersAPI } from "../../Redux/Services/bannerAPI";
 import SampleNextArrow from "../SampleNextArrow/SampleNextArrow";
 import SamplePrevArrow from "../SamplePrevArrow/SamplePrevArrow";
