@@ -42,7 +42,6 @@ function Footer() {
                 className={`col-md-4 ${styles.top__item} ${styles.img__col}`}
               >
                 <h6 className={styles.top__title}>ĐỐI TÁC</h6>
-
                 <ul className={styles.img__list}>
                   <li className={styles.img__item}>
                     <Link

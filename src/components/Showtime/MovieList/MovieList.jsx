@@ -19,7 +19,7 @@ function MovieList({ complexCineId, movieList }) {
             }
             return (
               <>
-                <div className={cls("my-3", styles.film__content)}>
+                <div key={film.maPhim} className={cls("my-3", styles.film__content)}>
                   <div className={cls("img-fluid", styles.film__img)}>
                     <LazyLoadImage src={film.hinhAnh} alt={item.maPhim} />
                   </div>

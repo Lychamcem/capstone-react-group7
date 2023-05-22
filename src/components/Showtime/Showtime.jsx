@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Tabs } from "antd";
 import {
   cineName,
-  getShowTimeRequest,
   getTheaterNameByCineId,
 } from "../../Redux/Services/cineNameAPI";
-import { useParams } from "react-router-dom";
 import CineName from "./CineName/CineName";
 import { toast } from "react-toastify";
 import styles from "./showtime.module.scss";
 import TheaterName from "./TheaterName/TheaterName";
+import cls from 'classnames'
 
 function Showtime() {
   const [cineList, setCineList] = useState([]);
@@ -54,8 +53,9 @@ function Showtime() {
   }, [cineId]);
 
   return (
-    <div className="container py-5" id="theaterCluster">
+    <div className={cls('container py-5', styles.showtime)} id="theaterCluster">
       <Tabs
+        className={styles.showtime__group}
         defaultActiveKey="1"
         tabPosition={"left"}
         items={cineList.map((item, index) => {
